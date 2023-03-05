@@ -18,6 +18,11 @@ using namespace  ::match_service;
 
 using namespace std;
 
+void print(User user)
+{
+    cout << user.id<<" "<<user.name<<" "<<user.score<<endl;
+}
+
 class MatchHandler : virtual public MatchIf {
     public:
         MatchHandler() {
@@ -27,12 +32,14 @@ class MatchHandler : virtual public MatchIf {
         int32_t add_user(const User& user, const std::string& info) {
             // Your implementation goes here
             printf("add_user\n");
+            print(user);
             return 0;
         }
 
         int32_t remove_user(const User& user, const std::string& info) {
             // Your implementation goes here
             printf("remove_user\n");
+            print(user);
             return 0;
         }
 
