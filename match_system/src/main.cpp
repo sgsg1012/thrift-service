@@ -73,12 +73,25 @@ class Pool
 
         void match()
         {
+            sort(users.begin(),users.end(),[&](User &a, User &b){
+                return a.score < b.score;
+            });
+
             while(users.size() > 1)
             {
-                auto a=users[0],b=users[1];
-                users.erase(users.begin());
-                users.erase(users.begin());
-                save_result(a,b);
+                bool flag = true;
+                for(auto it=users.begin()+1;it!=users.end();it++)
+                {
+                    auto t=it-1;
+                    if( (*it).score - (*t).score <= 50 )
+                    {
+                        flag = false;
+                        save_result(*t , *it);
+                        users.erase(t,it+1);
+                        break;
+                    }
+                }
+                if(flag) break;
             }
         }
 
@@ -147,7 +160,10 @@ void consume_task()
         unique_lock<mutex> lck(message_queue.m);
         if(message_queue.q.empty())
         {
-            message_queue.cv.wait(lck);
+            // message_queue.cv.wait(lck);
+            lck.unlock();
+            pool.match();
+            sleep(1);
         }
         else
         {
