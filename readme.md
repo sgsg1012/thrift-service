@@ -422,27 +422,5 @@ V操作的主要动作是：
 ---
 ## #include <condition_variable>
 
----
-## C++中类的定义
 
----
-## vector的size()是无符号整数类型。
 
----
-## vector的erase()是左闭右开。
-
----
-## 求一个字符串的md5值。
-输入命令"md5sum"，输入字符串回车然后`Ctrl + d`就行了。
-md5加密
-
----
-> 随着学习的深入，用到英语的地方越来越多，很多技术都是外国实现，中国的计算机技术还需要我辈去完善创新。
-先从英语开始吧。每篇一记。
-
-## 英语知识
-- IDL:接口定义语言（Interface Definition Language）
-- RPC:远程过程调用（Remote Procedure Call）
-- client:客户，客户端
-
-<font face="楷书" color=red>最后说一句，会了英语学编程真香，不说了，我去学英语了。</font>
